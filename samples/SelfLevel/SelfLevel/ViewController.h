@@ -10,14 +10,25 @@
 #import <RobotUIKit/RobotUIKit.h>
 
 @interface ViewController : UIViewController {
-    BOOL ledON;
+
     BOOL robotOnline;
-    RUICalibrateGestureHandler *calibrateHandler;
 }
+
+@property (retain, nonatomic) IBOutlet UISwitch *headingSwitch;
+@property (retain, nonatomic) IBOutlet UISwitch *sleepSwitch;
+@property (retain, nonatomic) IBOutlet UISwitch *controlSystemSwitch;
+
+@property (retain, nonatomic) IBOutlet UILabel *selfLevelStatusLabel;
+
+@property (retain, nonatomic) IBOutlet UITextField *angleLimitTextField;
+@property (retain, nonatomic) IBOutlet UITextField *timeoutTextField;
+@property (retain, nonatomic) IBOutlet UITextField *accuracyTextField;
 
 -(void)setupRobotConnection;
 -(void)handleRobotOnline;
--(void)toggleLED;
+-(IBAction)selfLevelPressed:(id)sender;
+-(IBAction)abortPressed:(id)sender;
+-(IBAction)dismissKeyboard:(id)sender;
 
 @end
 
